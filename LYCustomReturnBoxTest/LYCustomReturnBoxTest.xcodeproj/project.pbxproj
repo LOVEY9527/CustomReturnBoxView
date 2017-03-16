@@ -1,0 +1,423 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		B1DA20041E7A3A8D0082559B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B1DA20031E7A3A8D0082559B /* main.m */; };
+		B1DA20071E7A3A8D0082559B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B1DA20061E7A3A8D0082559B /* AppDelegate.m */; };
+		B1DA200A1E7A3A8D0082559B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B1DA20091E7A3A8D0082559B /* ViewController.m */; };
+		B1DA200D1E7A3A8D0082559B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1DA200B1E7A3A8D0082559B /* Main.storyboard */; };
+		B1DA200F1E7A3A8D0082559B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B1DA200E1E7A3A8D0082559B /* Assets.xcassets */; };
+		B1DA20121E7A3A8D0082559B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B1DA20101E7A3A8D0082559B /* LaunchScreen.storyboard */; };
+		B1DA201D1E7A3A8D0082559B /* LYCustomReturnBoxTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B1DA201C1E7A3A8D0082559B /* LYCustomReturnBoxTestTests.m */; };
+		B1DA20291E7A3AAC0082559B /* LYCustomReturnBoxView.m in Sources */ = {isa = PBXBuildFile; fileRef = B1DA20271E7A3AAC0082559B /* LYCustomReturnBoxView.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		B1DA20191E7A3A8D0082559B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B1DA1FF71E7A3A8D0082559B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B1DA1FFE1E7A3A8D0082559B;
+			remoteInfo = LYCustomReturnBoxTest;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		B1DA1FFF1E7A3A8D0082559B /* LYCustomReturnBoxTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LYCustomReturnBoxTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1DA20031E7A3A8D0082559B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		B1DA20051E7A3A8D0082559B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		B1DA20061E7A3A8D0082559B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		B1DA20081E7A3A8D0082559B /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		B1DA20091E7A3A8D0082559B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		B1DA200C1E7A3A8D0082559B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		B1DA200E1E7A3A8D0082559B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B1DA20111E7A3A8D0082559B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		B1DA20131E7A3A8D0082559B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1DA20181E7A3A8D0082559B /* LYCustomReturnBoxTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LYCustomReturnBoxTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B1DA201C1E7A3A8D0082559B /* LYCustomReturnBoxTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LYCustomReturnBoxTestTests.m; sourceTree = "<group>"; };
+		B1DA201E1E7A3A8D0082559B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B1DA20271E7A3AAC0082559B /* LYCustomReturnBoxView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYCustomReturnBoxView.m; sourceTree = "<group>"; };
+		B1DA20281E7A3AAC0082559B /* LYCustomReturnBoxView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYCustomReturnBoxView.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		B1DA1FFC1E7A3A8D0082559B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1DA20151E7A3A8D0082559B /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B1DA1FF61E7A3A8D0082559B = {
+			isa = PBXGroup;
+			children = (
+				B1DA20011E7A3A8D0082559B /* LYCustomReturnBoxTest */,
+				B1DA201B1E7A3A8D0082559B /* LYCustomReturnBoxTestTests */,
+				B1DA20001E7A3A8D0082559B /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B1DA20001E7A3A8D0082559B /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				B1DA1FFF1E7A3A8D0082559B /* LYCustomReturnBoxTest.app */,
+				B1DA20181E7A3A8D0082559B /* LYCustomReturnBoxTestTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		B1DA20011E7A3A8D0082559B /* LYCustomReturnBoxTest */ = {
+			isa = PBXGroup;
+			children = (
+				B1DA20281E7A3AAC0082559B /* LYCustomReturnBoxView.h */,
+				B1DA20271E7A3AAC0082559B /* LYCustomReturnBoxView.m */,
+				B1DA20051E7A3A8D0082559B /* AppDelegate.h */,
+				B1DA20061E7A3A8D0082559B /* AppDelegate.m */,
+				B1DA20081E7A3A8D0082559B /* ViewController.h */,
+				B1DA20091E7A3A8D0082559B /* ViewController.m */,
+				B1DA200B1E7A3A8D0082559B /* Main.storyboard */,
+				B1DA200E1E7A3A8D0082559B /* Assets.xcassets */,
+				B1DA20101E7A3A8D0082559B /* LaunchScreen.storyboard */,
+				B1DA20131E7A3A8D0082559B /* Info.plist */,
+				B1DA20021E7A3A8D0082559B /* Supporting Files */,
+			);
+			path = LYCustomReturnBoxTest;
+			sourceTree = "<group>";
+		};
+		B1DA20021E7A3A8D0082559B /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				B1DA20031E7A3A8D0082559B /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B1DA201B1E7A3A8D0082559B /* LYCustomReturnBoxTestTests */ = {
+			isa = PBXGroup;
+			children = (
+				B1DA201C1E7A3A8D0082559B /* LYCustomReturnBoxTestTests.m */,
+				B1DA201E1E7A3A8D0082559B /* Info.plist */,
+			);
+			path = LYCustomReturnBoxTestTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		B1DA1FFE1E7A3A8D0082559B /* LYCustomReturnBoxTest */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B1DA20211E7A3A8D0082559B /* Build configuration list for PBXNativeTarget "LYCustomReturnBoxTest" */;
+			buildPhases = (
+				B1DA1FFB1E7A3A8D0082559B /* Sources */,
+				B1DA1FFC1E7A3A8D0082559B /* Frameworks */,
+				B1DA1FFD1E7A3A8D0082559B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LYCustomReturnBoxTest;
+			productName = LYCustomReturnBoxTest;
+			productReference = B1DA1FFF1E7A3A8D0082559B /* LYCustomReturnBoxTest.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B1DA20171E7A3A8D0082559B /* LYCustomReturnBoxTestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B1DA20241E7A3A8D0082559B /* Build configuration list for PBXNativeTarget "LYCustomReturnBoxTestTests" */;
+			buildPhases = (
+				B1DA20141E7A3A8D0082559B /* Sources */,
+				B1DA20151E7A3A8D0082559B /* Frameworks */,
+				B1DA20161E7A3A8D0082559B /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B1DA201A1E7A3A8D0082559B /* PBXTargetDependency */,
+			);
+			name = LYCustomReturnBoxTestTests;
+			productName = LYCustomReturnBoxTestTests;
+			productReference = B1DA20181E7A3A8D0082559B /* LYCustomReturnBoxTestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		B1DA1FF71E7A3A8D0082559B /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = "李勇";
+				TargetAttributes = {
+					B1DA1FFE1E7A3A8D0082559B = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
+					B1DA20171E7A3A8D0082559B = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = B1DA1FFE1E7A3A8D0082559B;
+					};
+				};
+			};
+			buildConfigurationList = B1DA1FFA1E7A3A8D0082559B /* Build configuration list for PBXProject "LYCustomReturnBoxTest" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = B1DA1FF61E7A3A8D0082559B;
+			productRefGroup = B1DA20001E7A3A8D0082559B /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				B1DA1FFE1E7A3A8D0082559B /* LYCustomReturnBoxTest */,
+				B1DA20171E7A3A8D0082559B /* LYCustomReturnBoxTestTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		B1DA1FFD1E7A3A8D0082559B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1DA20121E7A3A8D0082559B /* LaunchScreen.storyboard in Resources */,
+				B1DA200F1E7A3A8D0082559B /* Assets.xcassets in Resources */,
+				B1DA200D1E7A3A8D0082559B /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1DA20161E7A3A8D0082559B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		B1DA1FFB1E7A3A8D0082559B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1DA200A1E7A3A8D0082559B /* ViewController.m in Sources */,
+				B1DA20071E7A3A8D0082559B /* AppDelegate.m in Sources */,
+				B1DA20291E7A3AAC0082559B /* LYCustomReturnBoxView.m in Sources */,
+				B1DA20041E7A3A8D0082559B /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B1DA20141E7A3A8D0082559B /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B1DA201D1E7A3A8D0082559B /* LYCustomReturnBoxTestTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		B1DA201A1E7A3A8D0082559B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B1DA1FFE1E7A3A8D0082559B /* LYCustomReturnBoxTest */;
+			targetProxy = B1DA20191E7A3A8D0082559B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		B1DA200B1E7A3A8D0082559B /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B1DA200C1E7A3A8D0082559B /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		B1DA20101E7A3A8D0082559B /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				B1DA20111E7A3A8D0082559B /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		B1DA201F1E7A3A8D0082559B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		B1DA20201E7A3A8D0082559B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		B1DA20221E7A3A8D0082559B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = LYCustomReturnBoxTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ly.LYCustomReturnBoxTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		B1DA20231E7A3A8D0082559B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = LYCustomReturnBoxTest/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ly.LYCustomReturnBoxTest;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		B1DA20251E7A3A8D0082559B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = LYCustomReturnBoxTestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ly.LYCustomReturnBoxTestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LYCustomReturnBoxTest.app/LYCustomReturnBoxTest";
+			};
+			name = Debug;
+		};
+		B1DA20261E7A3A8D0082559B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = LYCustomReturnBoxTestTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ly.LYCustomReturnBoxTestTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LYCustomReturnBoxTest.app/LYCustomReturnBoxTest";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B1DA1FFA1E7A3A8D0082559B /* Build configuration list for PBXProject "LYCustomReturnBoxTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1DA201F1E7A3A8D0082559B /* Debug */,
+				B1DA20201E7A3A8D0082559B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B1DA20211E7A3A8D0082559B /* Build configuration list for PBXNativeTarget "LYCustomReturnBoxTest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1DA20221E7A3A8D0082559B /* Debug */,
+				B1DA20231E7A3A8D0082559B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		B1DA20241E7A3A8D0082559B /* Build configuration list for PBXNativeTarget "LYCustomReturnBoxTestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B1DA20251E7A3A8D0082559B /* Debug */,
+				B1DA20261E7A3A8D0082559B /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = B1DA1FF71E7A3A8D0082559B /* Project object */;
+}
