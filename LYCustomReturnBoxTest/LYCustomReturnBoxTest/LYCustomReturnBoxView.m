@@ -204,6 +204,40 @@ CGFloat const kLYCRBVMinScale = 0;
     label2TranslationKeyFrameAnimation.duration = kLYCRBVKeyFrameAnimationDuring;
     label2TranslationKeyFrameAnimation.repeatCount = NSIntegerMax;
     [self.label2.layer addAnimation:label2TranslationKeyFrameAnimation forKey:@"self.label2.translationKeyFrameAnimation"];
+    
+    //标签3
+    UILabel *label3 = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
+    //    self.label2.center = CGPointMake(self.frame.size.width/2, 0);
+    label3.textAlignment = NSTextAlignmentCenter;
+    label3.textColor = [UIColor blackColor];
+    label3.font = [UIFont systemFontOfSize:14];
+    label3.backgroundColor = [UIColor purpleColor];
+    label3.text = @"我是谁";
+    label3.layer.transform = CATransform3DScale(self.label2.layer.transform, 1, 0, 1);
+    label3.layer.position = CGPointMake(self.label2.layer.position.x, 0);
+    //    self.label2.alpha = 0;
+    [self addSubview:label3];
+    
+    CAKeyframeAnimation *label3ScaleKeyFrameAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale.y"];
+    NSValue *label3ScaleValue0 = @(kLYCRBVMinScale);
+    NSValue *label3ScaleValue1 = @(1);
+    NSArray *label3ScaleValueArray = @[label3ScaleValue0, label3ScaleValue0, label3ScaleValue1, label3ScaleValue0];
+    label3ScaleKeyFrameAnimation.values = label3ScaleValueArray;
+    label3ScaleKeyFrameAnimation.removedOnCompletion = NO;
+    label3ScaleKeyFrameAnimation.duration = kLYCRBVKeyFrameAnimationDuring;
+    label3ScaleKeyFrameAnimation.repeatCount = NSIntegerMax;
+    [label3.layer addAnimation:label3ScaleKeyFrameAnimation forKey:@"self.label2.scaleKeyFrameAnimation"];
+    
+    CAKeyframeAnimation *label3TranslationKeyFrameAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
+    NSValue *label3TranslationValue0 = [NSNumber numberWithFloat:self.frame.size.height];
+    NSValue *label3TranslationValue1 = [NSNumber numberWithFloat:0];
+    NSValue *label3TranslationValue2 = [NSNumber numberWithFloat:self.frame.size.height / 2];
+    NSArray *label3TranslationValueArray = @[label3TranslationValue0, label3TranslationValue1, label3TranslationValue2, label3TranslationValue0];
+    label3TranslationKeyFrameAnimation.values = label3TranslationValueArray;
+    label3TranslationKeyFrameAnimation.removedOnCompletion = NO;
+    label3TranslationKeyFrameAnimation.duration = kLYCRBVKeyFrameAnimationDuring;
+    label3TranslationKeyFrameAnimation.repeatCount = NSIntegerMax;
+    [label3.layer addAnimation:label3TranslationKeyFrameAnimation forKey:@"self.label2.translationKeyFrameAnimation"];
 
 //    if (self.returnBoxStyle == AutoCycleReturnBoxStyle)
 //    {
