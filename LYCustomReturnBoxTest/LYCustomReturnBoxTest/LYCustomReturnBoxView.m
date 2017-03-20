@@ -12,7 +12,10 @@
 
 #define ANIMATE_DURING  1
 
-@interface LYCustomReturnBoxView()
+NSTimeInterval const kLYCRBVKeyFrameAnimationDuring = 3;
+CGFloat const kLYCRBVMinScale = 0;
+
+@interface LYCustomReturnBoxView()<CAAnimationDelegate>
 
 //数据源
 @property (strong, nonatomic) NSMutableArray *dataSource;
@@ -139,30 +142,77 @@
     self.label1.textAlignment = NSTextAlignmentCenter;
     self.label1.textColor = [UIColor blackColor];
     self.label1.font = [UIFont systemFontOfSize:14];
+    self.label1.backgroundColor = [UIColor blueColor];
     if (self.titleIndex < [self.dataSource count])
     {
         [self setTextAtIndex:self.titleIndex++ ForLabel:self.label1];
     }
     [self addSubview:self.label1];
     
+    CAKeyframeAnimation *label1ScaleKeyFrameAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale.y"];
+    NSValue *label1ScaleValue0 = @(1);
+    NSValue *label1ScaleValue1 = @(kLYCRBVMinScale);
+    NSArray *label1ScaleValueArray = @[label1ScaleValue0, label1ScaleValue1, label1ScaleValue1, label1ScaleValue0];
+    label1ScaleKeyFrameAnimation.values = label1ScaleValueArray;
+    label1ScaleKeyFrameAnimation.delegate = self;
+    label1ScaleKeyFrameAnimation.removedOnCompletion = NO;
+    label1ScaleKeyFrameAnimation.duration = kLYCRBVKeyFrameAnimationDuring;
+    label1ScaleKeyFrameAnimation.repeatCount = NSIntegerMax;
+    [self.label1.layer addAnimation:label1ScaleKeyFrameAnimation forKey:@"self.label1.scaleKeyFrameAnimation"];
+    
+    CAKeyframeAnimation *label1TranslationKeyFrameAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
+    NSValue *label1TranslationValue0 = [NSNumber numberWithFloat:self.frame.size.height / 2];
+    NSValue *label1TranslationValue1 = [NSNumber numberWithFloat:self.frame.size.height];
+    NSValue *label1TranslationValue2 = [NSNumber numberWithFloat:0];
+    NSArray *label1TranslationValueArray = @[label1TranslationValue0, label1TranslationValue1, label1TranslationValue2, label1TranslationValue0];
+    label1TranslationKeyFrameAnimation.values = label1TranslationValueArray;
+    label1TranslationKeyFrameAnimation.removedOnCompletion = NO;
+    label1TranslationKeyFrameAnimation.duration = kLYCRBVKeyFrameAnimationDuring;
+    label1TranslationKeyFrameAnimation.repeatCount = NSIntegerMax;
+    [self.label1.layer addAnimation:label1TranslationKeyFrameAnimation forKey:@"self.label1.translationKeyFrameAnimation"];
+    
     //标签2
     self.label2 = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.frame.size.width, self.frame.size.height)];
-    self.label2.center = CGPointMake(self.frame.size.width/2, 0);
+//    self.label2.center = CGPointMake(self.frame.size.width/2, 0);
     self.label2.textAlignment = NSTextAlignmentCenter;
     self.label2.textColor = [UIColor blackColor];
     self.label2.font = [UIFont systemFontOfSize:14];
-    self.label2.transform = CGAffineTransformScale(self.label2.transform, 1, 0);
-    self.label2.alpha = 0;
+    self.label2.backgroundColor = [UIColor yellowColor];
+    self.label2.text = @"hahahahahhhahahah";
+    self.label2.layer.transform = CATransform3DScale(self.label2.layer.transform, 1, 0, 1);
+    self.label2.layer.position = CGPointMake(self.label2.layer.position.x, 0);
+//    self.label2.alpha = 0;
     [self addSubview:self.label2];
     
-    if (self.returnBoxStyle == AutoCycleReturnBoxStyle)
-    {
-        if ([self.dataSource count] > 1)
-        {
-            //只有当翻转方式为自动翻转而且数据源不止一条数据的时候开始转动
-            [self startReturn];
-        }
-    }
+    CAKeyframeAnimation *label2ScaleKeyFrameAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale.y"];
+    NSValue *label2ScaleValue0 = @(kLYCRBVMinScale);
+    NSValue *label2ScaleValue1 = @(1);
+    NSArray *label2ScaleValueArray = @[label2ScaleValue0, label2ScaleValue1, label2ScaleValue0, label2ScaleValue0];
+    label2ScaleKeyFrameAnimation.values = label2ScaleValueArray;
+    label2ScaleKeyFrameAnimation.removedOnCompletion = NO;
+    label2ScaleKeyFrameAnimation.duration = kLYCRBVKeyFrameAnimationDuring;
+    label2ScaleKeyFrameAnimation.repeatCount = NSIntegerMax;
+    [self.label2.layer addAnimation:label2ScaleKeyFrameAnimation forKey:@"self.label2.scaleKeyFrameAnimation"];
+    
+    CAKeyframeAnimation *label2TranslationKeyFrameAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
+    NSValue *label2TranslationValue0 = [NSNumber numberWithFloat:0];
+    NSValue *label2TranslationValue1 = [NSNumber numberWithFloat:self.frame.size.height / 2];
+    NSValue *label2TranslationValue2 = [NSNumber numberWithFloat:self.frame.size.height];
+    NSArray *label2TranslationValueArray = @[label2TranslationValue0, label2TranslationValue1, label2TranslationValue2, label2TranslationValue0];
+    label2TranslationKeyFrameAnimation.values = label2TranslationValueArray;
+    label2TranslationKeyFrameAnimation.removedOnCompletion = NO;
+    label2TranslationKeyFrameAnimation.duration = kLYCRBVKeyFrameAnimationDuring;
+    label2TranslationKeyFrameAnimation.repeatCount = NSIntegerMax;
+    [self.label2.layer addAnimation:label2TranslationKeyFrameAnimation forKey:@"self.label2.translationKeyFrameAnimation"];
+
+//    if (self.returnBoxStyle == AutoCycleReturnBoxStyle)
+//    {
+//        if ([self.dataSource count] > 1)
+//        {
+//            //只有当翻转方式为自动翻转而且数据源不止一条数据的时候开始转动
+//            [self startReturn];
+//        }
+//    }
 }
 
 /**

@@ -25,6 +25,7 @@
 //    customReturnBoxView.textAlignment = NSTextAlignmentLeft;
 //    customReturnBoxView.textFont = [UIFont systemFontOfSize:10];
     customReturnBoxView.textColor = [UIColor grayColor];
+    customReturnBoxView.backgroundColor = [UIColor redColor];
     [self.view addSubview:customReturnBoxView];
 }
 
