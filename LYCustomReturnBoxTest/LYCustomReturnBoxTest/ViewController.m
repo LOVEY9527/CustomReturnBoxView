@@ -19,13 +19,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    LYCustomReturnBoxView *customReturnBoxView = [[LYCustomReturnBoxView alloc] initWithFrame:CGRectMake(0, 60, self.view.frame.size.width, 60)
+    LYCustomReturnBoxView *customReturnBoxView = [[LYCustomReturnBoxView alloc] initWithFrame:CGRectMake(0, 60, self.view.frame.size.width, 30)
                                                                                         style:AutoCycleReturnBoxStyle
-                                                                                   DataSource:@[@"轮播", @"轮播轮播轮播", @"轮播轮播轮播轮播轮播轮播"]];
+                                                                                   DataSource:@[@"123购买了小秘书得到了价值￥5000股票",
+                                                                                                @"123购买了小秘书得到了价值￥5000股票",
+                                                                                                @"123购买了小秘书得到了价值￥5000股票"]];
 //    customReturnBoxView.textAlignment = NSTextAlignmentLeft;
 //    customReturnBoxView.textFont = [UIFont systemFontOfSize:10];
     customReturnBoxView.textColor = [UIColor grayColor];
-    customReturnBoxView.backgroundColor = [UIColor redColor];
+//    customReturnBoxView.backgroundColor = [UIColor redColor];
     [self.view addSubview:customReturnBoxView];
 }
 
