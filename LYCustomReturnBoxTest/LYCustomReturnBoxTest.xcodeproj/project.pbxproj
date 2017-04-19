@@ -347,10 +347,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yi Huang (CCBA7N9AAK)";
 				INFOPLIST_FILE = LYCustomReturnBoxTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ly.LYCustomReturnBoxTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.luichi.chamberlain;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "8ff1ac96-6143-4a3a-9566-83e7db1ad14c";
 			};
 			name = Debug;
 		};
@@ -358,10 +360,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer: Yi Huang (CCBA7N9AAK)";
 				INFOPLIST_FILE = LYCustomReturnBoxTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ly.LYCustomReturnBoxTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.luichi.chamberlain;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "8ff1ac96-6143-4a3a-9566-83e7db1ad14c";
 			};
 			name = Release;
 		};
@@ -408,6 +412,7 @@
 				B1DA20231E7A3A8D0082559B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B1DA20241E7A3A8D0082559B /* Build configuration list for PBXNativeTarget "LYCustomReturnBoxTestTests" */ = {
 			isa = XCConfigurationList;
@@ -416,6 +421,7 @@
 				B1DA20261E7A3A8D0082559B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
