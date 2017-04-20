@@ -12,11 +12,11 @@
 
 #define ANIMATE_DURING  1
 
-#define DEBUGMODEL
+//#define DEBUGMODEL
 
 NSTimeInterval const kLYCRBVKeyFrameAnimationDuring = 5.0;
 NSTimeInterval const kLYCRBVTimerDuring = kLYCRBVKeyFrameAnimationDuring / 6;
-CGFloat const kLYCRBVMinScale = 0.0;
+CGFloat const kLYCRBVMinScale = 0.00;
 
 @interface LYCustomReturnBoxView()
 
@@ -236,6 +236,9 @@ CGFloat const kLYCRBVMinScale = 0.0;
  */
 - (void)startReturn
 {
+    //动画执行的时间函数
+    CAMediaTimingFunction *timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionLinear];
+    
     //标签1的缩放动画和移动动画
     CAKeyframeAnimation *label1ScaleKeyFrameAnimation = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale.y"];
     NSValue *label1ScaleValue0 = @(1);
@@ -246,18 +249,20 @@ CGFloat const kLYCRBVMinScale = 0.0;
     label1ScaleKeyFrameAnimation.fillMode = kCAFillModeForwards;
     label1ScaleKeyFrameAnimation.duration = kLYCRBVKeyFrameAnimationDuring;
     label1ScaleKeyFrameAnimation.repeatCount = NSIntegerMax;
+    label1ScaleKeyFrameAnimation.timingFunction = timingFunction;
     [self.label1.layer addAnimation:label1ScaleKeyFrameAnimation forKey:@"self.label1.scaleKeyFrameAnimation"];
     
-    CAKeyframeAnimation *label1TranslationKeyFrameAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position"];
-    NSValue *label1TranslationValue0 = [NSValue valueWithCGPoint:CGPointMake(self.label1.layer.position.x, self.frame.size.height / 2)];
-    NSValue *label1TranslationValue1 = [NSValue valueWithCGPoint:CGPointMake(self.label1.layer.position.x, self.frame.size.height)];
-    NSValue *label1TranslationValue2 = [NSValue valueWithCGPoint:CGPointMake(self.label1.layer.position.x, 0)];
+    CAKeyframeAnimation *label1TranslationKeyFrameAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
+    NSValue *label1TranslationValue0 = @(self.frame.size.height / 2);
+    NSValue *label1TranslationValue1 = @(self.frame.size.height);
+    NSValue *label1TranslationValue2 = @(0.0);
     NSArray *label1TranslationValueArray = @[label1TranslationValue0, label1TranslationValue0, label1TranslationValue1, label1TranslationValue1, label1TranslationValue2, label1TranslationValue2, label1TranslationValue0];
     label1TranslationKeyFrameAnimation.values = label1TranslationValueArray;
     label1TranslationKeyFrameAnimation.removedOnCompletion = NO;
     label1TranslationKeyFrameAnimation.fillMode = kCAFillModeForwards;
     label1TranslationKeyFrameAnimation.duration = kLYCRBVKeyFrameAnimationDuring;
     label1TranslationKeyFrameAnimation.repeatCount = NSIntegerMax;
+    label1TranslationKeyFrameAnimation.timingFunction = timingFunction;
     [self.label1.layer addAnimation:label1TranslationKeyFrameAnimation forKey:@"self.label1.translationKeyFrameAnimation"];
     
     //标签2的缩放动画和移动动画
@@ -269,6 +274,7 @@ CGFloat const kLYCRBVMinScale = 0.0;
     label2ScaleKeyFrameAnimation.removedOnCompletion = NO;
     label2ScaleKeyFrameAnimation.duration = kLYCRBVKeyFrameAnimationDuring;
     label2ScaleKeyFrameAnimation.repeatCount = NSIntegerMax;
+    label2ScaleKeyFrameAnimation.timingFunction = timingFunction;
     [self.label2.layer addAnimation:label2ScaleKeyFrameAnimation forKey:@"self.label2.scaleKeyFrameAnimation"];
     
     CAKeyframeAnimation *label2TranslationKeyFrameAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
@@ -280,6 +286,7 @@ CGFloat const kLYCRBVMinScale = 0.0;
     label2TranslationKeyFrameAnimation.removedOnCompletion = NO;
     label2TranslationKeyFrameAnimation.duration = kLYCRBVKeyFrameAnimationDuring;
     label2TranslationKeyFrameAnimation.repeatCount = NSIntegerMax;
+    label1TranslationKeyFrameAnimation.timingFunction = timingFunction;
     [self.label2.layer addAnimation:label2TranslationKeyFrameAnimation forKey:@"self.label2.translationKeyFrameAnimation"];
     
     //标签3的缩放动画和移动动画
@@ -291,6 +298,7 @@ CGFloat const kLYCRBVMinScale = 0.0;
     label3ScaleKeyFrameAnimation.removedOnCompletion = NO;
     label3ScaleKeyFrameAnimation.duration = kLYCRBVKeyFrameAnimationDuring;
     label3ScaleKeyFrameAnimation.repeatCount = NSIntegerMax;
+    label3ScaleKeyFrameAnimation.timingFunction = timingFunction;
     [self.label3.layer addAnimation:label3ScaleKeyFrameAnimation forKey:@"self.label2.scaleKeyFrameAnimation"];
     
     CAKeyframeAnimation *label3TranslationKeyFrameAnimation = [CAKeyframeAnimation animationWithKeyPath:@"position.y"];
@@ -302,6 +310,7 @@ CGFloat const kLYCRBVMinScale = 0.0;
     label3TranslationKeyFrameAnimation.removedOnCompletion = NO;
     label3TranslationKeyFrameAnimation.duration = kLYCRBVKeyFrameAnimationDuring;
     label3TranslationKeyFrameAnimation.repeatCount = NSIntegerMax;
+    label3TranslationKeyFrameAnimation.timingFunction = timingFunction;
     [self.label3.layer addAnimation:label3TranslationKeyFrameAnimation forKey:@"self.label2.translationKeyFrameAnimation"];
     
     self.timer = [NSTimer scheduledTimerWithTimeInterval:kLYCRBVTimerDuring
@@ -312,6 +321,31 @@ CGFloat const kLYCRBVMinScale = 0.0;
     [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
 }
 
+/**
+ *  @author liyong
+ *
+ *  停止转动
+ */
+- (void)stopReturn
+{
+    //移除动画
+    [self.label1.layer removeAllAnimations];
+    [self.label2.layer removeAllAnimations];
+    [self.label3.layer removeAllAnimations];
+    
+    //停止定时器
+    if ([self.timer isValid])
+    {
+        [self.timer invalidate];
+        self.timer = nil;
+    }
+}
+
+/**
+ *  @author liyong
+ *
+ *  监听动画，替换文案
+ */
 - (void)listenerReturn
 {
     //标记将要显示的标签
@@ -320,40 +354,37 @@ CGFloat const kLYCRBVMinScale = 0.0;
         (CATransform3DEqualToTransform([(CALayer *)(self.label1.layer.presentationLayer) transform], CATransform3DMakeScale(1, kLYCRBVMinScale, 1))))
     {
         self.showingLabel = self.label1;
-        NSLog(@"self.label1");
     }else if (([[self.label2.layer presentationLayer] isKindOfClass:[CALayer class]]) &&
               ([(CALayer *)(self.label2.layer.presentationLayer) position].y == 0) &&
               (CATransform3DEqualToTransform([(CALayer *)(self.label2.layer.presentationLayer) transform], CATransform3DMakeScale(1, kLYCRBVMinScale, 1))))
     {
         self.showingLabel = self.label2;
-        NSLog(@"self.label2");
     }else if (([[self.label3.layer presentationLayer] isKindOfClass:[CALayer class]]) &&
               ([(CALayer *)(self.label3.layer.presentationLayer) position].y == 0) &&
               (CATransform3DEqualToTransform([(CALayer *)(self.label3.layer.presentationLayer) transform], CATransform3DMakeScale(1, kLYCRBVMinScale, 1))))
     {
         self.showingLabel = self.label3;
-        NSLog(@"self.label3");
-    }
-//    if (self.label1.layer.presentationLayer.position.y == 0)
-//    {
-//        self.showingLabel = self.label1;
-//        NSLog(@"self.label1");
-//    }else if(self.label2.layer.presentationLayer.position.y == 0)
-//    {
-//        self.showingLabel = self.label2;
-//        NSLog(@"self.label2");
-//    }else if (self.label3.layer.presentationLayer.position.y == 0)
-//    {
-//        self.showingLabel = self.label3;
-//        NSLog(@"self.label3");
-//    }
-    
-    //设置将要显示的标签标题
-    if (self.titleIndex >= [self.dataSource count])
+    }else
     {
-        self.titleIndex = 0;
+        self.showingLabel = nil;
     }
-    [self setTextAtIndex:self.titleIndex++ ForLabel:self.showingLabel];
+    
+    if (self.showingLabel != nil)
+    {
+        //设置将要显示的标签标题
+        if (self.titleIndex >= [self.dataSource count])
+        {
+//            if ([self.dataSource count] <= 1)
+//            {
+//                //数据源少于1，停止转动
+//                [self stopReturn];
+//                return;
+//            }else{
+                self.titleIndex = 0;
+//            }
+        }
+        [self setTextAtIndex:self.titleIndex++ ForLabel:self.showingLabel];
+    }
 }
 
 /**
@@ -365,9 +396,9 @@ CGFloat const kLYCRBVMinScale = 0.0;
  */
 - (void)refreshWithDataSource:(NSArray *)dataSource
 {
-//    if (self.returnBoxStyle == NonautomaticReturnBoxStyle)
-//    {
-//        //手动翻转的话需要一直保持数据源中只有两条数据
+    if (self.returnBoxStyle == NonautomaticReturnBoxStyle)
+    {
+        //手动翻转的话需要一直保持数据源中只有两条数据
 //        if([self.dataSource count] > 1)
 //        {
 //            [self.dataSource removeObjectAtIndex:0];
@@ -376,44 +407,19 @@ CGFloat const kLYCRBVMinScale = 0.0;
 //        [self.dataSource addObject:[dataSource firstObject]];
 //        
 //        [self boxReturn];
-//    }else if (self.returnBoxStyle == AutoCycleReturnBoxStyle)
-//    {
-//        //清空旧数据
-//        [self.dataSource removeAllObjects];
-//        //停止定时器
-//        if ([self.timer isValid])
+    }else if (self.returnBoxStyle == AutoCycleReturnBoxStyle)
+    {
+        //清空旧数据
+        [self.dataSource removeAllObjects];
+        //添加新数据
+        [self.dataSource addObjectsFromArray:dataSource];
+        self.titleIndex = 0;
+//        if ([self.dataSource count] <= 1)
 //        {
-//            [self.timer invalidate];
-//            self.timer = nil;
+//            //数据源少于1，停止转动
+//            [self stopReturn];
 //        }
-//        //添加新数据
-//        [self.dataSource addObjectsFromArray:dataSource];
-//        self.titleIndex = 0;
-//        if ([self.dataSource count] > 1)
-//        {
-//            //数据源不止一条数据的时候开始转动
-//            [self startReturn];
-//        }
-//    }
-}
-
-#pragma mark - KVO func
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context
-{
-    NSLog(@"observeValueForKeyPath");
-}
-
-#pragma mark - CAAnimationDelegate
-
-- (void)animationDidStart:(CAAnimation *)anim
-{
-    NSLog(@"animationDidStart");
-}
-
-- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag
-{
-    NSLog(@"animationDidStop");
+    }
 }
 
 @end
