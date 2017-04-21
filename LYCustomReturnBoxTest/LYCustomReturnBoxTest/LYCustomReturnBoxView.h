@@ -28,13 +28,11 @@ typedef enum{
  *  初始化方法
  *
  *  @param frame
- *  @param returnBoxStyle 翻转方式
  *  @param dataSource     数据源(字符串/富文本)
  *
  *  @return
  */
 - (id)initWithFrame:(CGRect)frame
-              style:(ReturnBoxStyle)returnBoxStyle
          DataSource:(NSArray *)dataSource;
 
 /**

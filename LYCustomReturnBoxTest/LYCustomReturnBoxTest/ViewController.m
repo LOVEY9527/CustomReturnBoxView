@@ -24,10 +24,9 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     self.customReturnBoxView = [[LYCustomReturnBoxView alloc] initWithFrame:CGRectMake(0, 60, self.view.frame.size.width, 30)
-                                                                      style:AutoCycleReturnBoxStyle
                                                                  DataSource:@[@"Lovey购买了小秘书得到了价值￥5000股票",
-                                                                              @"2购买了小秘书得到了价值￥5000股票",
-                                                                              @"3购买了小秘书得到了价值￥5000股票"]];
+                                                                              @"Hxx购买了小秘书得到了价值￥5000股票",
+                                                                              @"Ly购买了小秘书得到了价值￥5000股票"]];
 //    self.customReturnBoxView.textAlignment = NSTextAlignmentLeft;
 //    self.customReturnBoxView.textFont = [UIFont systemFontOfSize:10];
     self.customReturnBoxView.textColor = [UIColor grayColor];
@@ -54,7 +53,15 @@
  */
 - (void)btnClick:(UIButton *)sender
 {
-    [self.customReturnBoxView refreshWithDataSource:@[@"123"]];
+    if (sender.isSelected)
+    {
+        [self.customReturnBoxView refreshWithDataSource:@[@"123"]];
+    }else
+    {
+        [self.customReturnBoxView refreshWithDataSource:@[@"谁最帅", @"我最帅", @"没人比我帅"]];
+    }
+    
+    [sender setSelected:!sender.isSelected];
 }
 
 - (void)didReceiveMemoryWarning {
