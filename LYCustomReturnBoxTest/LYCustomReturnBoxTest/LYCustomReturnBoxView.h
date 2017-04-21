@@ -34,8 +34,8 @@ typedef NS_ENUM(NSInteger, ReturnBoxStyle) {
  *  @return
  */
 - (id)initWithFrame:(CGRect)frame
-     ReturnBoxStyle:(ReturnBoxStyle)returnBoxStyle
-         DataSource:(NSArray *)dataSource;
+     returnBoxStyle:(ReturnBoxStyle)returnBoxStyle
+         dataSource:(NSArray *)dataSource;
 
 /**
  *  @author li_yong

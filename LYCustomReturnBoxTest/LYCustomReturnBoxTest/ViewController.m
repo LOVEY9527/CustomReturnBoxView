@@ -24,8 +24,8 @@
     // Do any additional setup after loading the view, typically from a nib.
     
     self.customReturnBoxView = [[LYCustomReturnBoxView alloc] initWithFrame:CGRectMake(0, 60, self.view.frame.size.width, 30)
-                                                             ReturnBoxStyle:ReturnBoxStyleCubeBottomToTop
-                                                                 DataSource:@[@"Lovey购买了小秘书得到了价值￥5000股票",
+                                                             returnBoxStyle:ReturnBoxStyleCubeBottomToTop
+                                                                 dataSource:@[@"Lovey购买了小秘书得到了价值￥5000股票",
                                                                               @"Hxx购买了小秘书得到了价值￥5000股票",
                                                                               @"Ly购买了小秘书得到了价值￥5000股票"]];
 //    self.customReturnBoxView.textAlignment = NSTextAlignmentLeft;

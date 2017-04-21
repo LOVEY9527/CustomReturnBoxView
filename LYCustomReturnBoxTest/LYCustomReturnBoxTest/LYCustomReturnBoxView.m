@@ -67,8 +67,8 @@ CGFloat const kLYCRBVMinScale = 0.00;
  *  @return
  */
 - (id)initWithFrame:(CGRect)frame
-     ReturnBoxStyle:(ReturnBoxStyle)returnBoxStyle
-         DataSource:(NSArray *)dataSource
+     returnBoxStyle:(ReturnBoxStyle)returnBoxStyle
+         dataSource:(NSArray *)dataSource
 {
     self = [super initWithFrame:frame];
     if (self)
