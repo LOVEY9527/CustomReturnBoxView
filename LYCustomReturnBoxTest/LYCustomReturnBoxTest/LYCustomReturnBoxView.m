@@ -8,7 +8,7 @@
 
 #import "LYCustomReturnBoxView.h"
 
-#define DEBUGMODEL
+//#define DEBUGMODEL
 
 //循环动画循环一次的动画时间
 NSTimeInterval const kLYCRBVKeyFrameAnimationDuring = 5.0;
