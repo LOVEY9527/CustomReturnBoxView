@@ -12,8 +12,6 @@
 
 //循环动画循环一次的动画时间
 NSTimeInterval const kLYCRBVKeyFrameAnimationDuring = 5.0;
-//监听动画的定时器的定时时间
-NSTimeInterval const kLYCRBVTimerDuring = kLYCRBVKeyFrameAnimationDuring / 6;
 //动画缩放比例
 CGFloat const kLYCRBVMinScale = 0.00;
 
@@ -33,6 +31,8 @@ CGFloat const kLYCRBVMinScale = 0.00;
 
 //定时器
 @property (strong, nonatomic) NSTimer *timer;
+//监听动画的定时器的时间间隔
+@property (assign, nonatomic) NSTimeInterval timerDuring;
 
 //标题序号
 @property (assign, nonatomic) NSInteger titleIndex;
@@ -250,7 +250,22 @@ CGFloat const kLYCRBVMinScale = 0.00;
                                  translationTopValue, translationCenterValue, translationCenterValue,
                                  TranslationBottomValue]];
     
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:kLYCRBVTimerDuring
+    //定时器
+    if ([self.label1.layer.animationKeys count] > 0)
+    {
+        NSString *animationKey = self.label1.layer.animationKeys[0];
+        CAAnimation *animation = [self.label1.layer animationForKey:animationKey];
+        if ([animation isKindOfClass:[CAKeyframeAnimation class]])
+        {
+            CAKeyframeAnimation *keyFrameAnimation = (CAKeyframeAnimation *)animation;
+            if ([keyFrameAnimation.values count] > 0)
+            {
+                //计算定时器时间间隔
+                self.timerDuring = kLYCRBVKeyFrameAnimationDuring / keyFrameAnimation.values.count;
+            }
+        }
+    }
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:self.timerDuring
                                                   target:self
                                                 selector:@selector(listenerReturn)
                                                 userInfo:nil
