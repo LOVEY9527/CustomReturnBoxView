@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-typedef enum{
-    AutoCycleReturnBoxStyle,    //自动循环翻转
-    NonautomaticReturnBoxStyle, //非自动翻转
-} ReturnBoxStyle;
+typedef NS_ENUM(NSInteger, ReturnBoxStyle) {
+    ReturnBoxStyleCubeTopToBottom,  //从上往下立体滚动
+    ReturnBoxStyleCubeBottomToTop,  //从下往上立体滚动
+};
 
 @interface LYCustomReturnBoxView : UIView
 
@@ -28,11 +28,13 @@ typedef enum{
  *  初始化方法
  *
  *  @param frame
+ *  @param returnBoxStyle 滚动风格
  *  @param dataSource     数据源(字符串/富文本)
  *
  *  @return
  */
 - (id)initWithFrame:(CGRect)frame
+     ReturnBoxStyle:(ReturnBoxStyle)returnBoxStyle
          DataSource:(NSArray *)dataSource;
 
 /**

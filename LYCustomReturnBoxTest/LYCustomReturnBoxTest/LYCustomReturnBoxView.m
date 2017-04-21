@@ -8,7 +8,7 @@
 
 #import "LYCustomReturnBoxView.h"
 
-//#define DEBUGMODEL
+#define DEBUGMODEL
 
 //循环动画循环一次的动画时间
 NSTimeInterval const kLYCRBVKeyFrameAnimationDuring = 5.0;
@@ -37,6 +37,9 @@ CGFloat const kLYCRBVMinScale = 0.00;
 //标题序号
 @property (assign, nonatomic) NSInteger titleIndex;
 
+//滚动风格
+@property (assign, nonatomic) ReturnBoxStyle returnBoxStyle;
+
 @end
 
 @implementation LYCustomReturnBoxView
@@ -58,17 +61,20 @@ CGFloat const kLYCRBVMinScale = 0.00;
  *  初始化方法
  *
  *  @param frame
- *  @param dataSource     数据源
+ *  @param returnBoxStyle 滚动风格
+ *  @param dataSource     数据源(字符串/富文本)
  *
  *  @return
  */
 - (id)initWithFrame:(CGRect)frame
-         DataSource:(NSArray<NSString *> *)dataSource
+     ReturnBoxStyle:(ReturnBoxStyle)returnBoxStyle
+         DataSource:(NSArray *)dataSource
 {
     self = [super initWithFrame:frame];
     if (self)
     {
         self.dataSource = [NSMutableArray arrayWithArray:dataSource];
+        self.returnBoxStyle = returnBoxStyle;
         [self buildView];
     }
     return self;
@@ -220,35 +226,60 @@ CGFloat const kLYCRBVMinScale = 0.00;
     NSValue *translationCenterValue = @(self.frame.size.height / 2);
     NSValue *TranslationBottomValue = @(self.frame.size.height);
     
-    //标签1的缩放动画和移动动画
-    [self addAnimationForLayer:self.label1.layer
-                       keyPath:@"transform.scale.y"
-                        values:@[scaleMaxValue, scaleMaxValue, scaleMinValue, scaleMinValue, scaleMinValue, scaleMinValue, scaleMaxValue]];
-    [self addAnimationForLayer:self.label1.layer
-                       keyPath:@"position.y"
-                        values:@[translationCenterValue, translationCenterValue, TranslationBottomValue,
-                                 TranslationBottomValue, translationTopValue, translationTopValue,
-                                 translationCenterValue]];
-    
-    //标签2的缩放动画和移动动画
-    [self addAnimationForLayer:self.label2.layer
-                       keyPath:@"transform.scale.y"
-                        values:@[scaleMinValue, scaleMinValue, scaleMaxValue, scaleMaxValue, scaleMinValue, scaleMinValue, scaleMinValue]];
-    [self addAnimationForLayer:self.label2.layer
-                       keyPath:@"position.y"
-                        values:@[translationTopValue, translationTopValue, translationCenterValue,
-                                 translationCenterValue, TranslationBottomValue, TranslationBottomValue,
-                                 translationTopValue]];
-    
-    //标签3的缩放动画和移动动画
-    [self addAnimationForLayer:self.label3.layer
-                       keyPath:@"transform.scale.y"
-                        values:@[scaleMinValue, scaleMinValue, scaleMinValue, scaleMinValue, scaleMaxValue, scaleMaxValue, scaleMinValue]];
-    [self addAnimationForLayer:self.label3.layer
-                       keyPath:@"position.y"
-                        values:@[TranslationBottomValue, TranslationBottomValue, translationTopValue,
-                                 translationTopValue, translationCenterValue, translationCenterValue,
-                                 TranslationBottomValue]];
+    switch (self.returnBoxStyle)
+    {
+        case ReturnBoxStyleCubeTopToBottom:
+        {
+            //标签1的缩放动画和移动动画
+            [self addAnimationForLayer:self.label1.layer
+                            configInfo:@{
+                                         @"transform.scale.y" : @[scaleMaxValue, scaleMaxValue, scaleMinValue, scaleMinValue, scaleMinValue, scaleMinValue, scaleMaxValue],
+                                         @"position.y" : @[translationCenterValue, translationCenterValue, TranslationBottomValue,
+                                                           TranslationBottomValue, translationTopValue,translationTopValue, translationCenterValue]}];
+            //标签2的缩放和移动动画
+            [self addAnimationForLayer:self.label2.layer
+                            configInfo:@{
+                                         @"transform.scale.y" : @[scaleMinValue, scaleMinValue, scaleMaxValue, scaleMaxValue, scaleMinValue, scaleMinValue, scaleMinValue],
+                                         @"position.y" : @[translationTopValue, translationTopValue, translationCenterValue,
+                                                           translationCenterValue, TranslationBottomValue, TranslationBottomValue, translationTopValue]}];
+            
+            //标签3的缩放和移动动画
+            [self addAnimationForLayer:self.label3.layer
+                            configInfo:@{
+                                         @"transform.scale.y" : @[scaleMinValue, scaleMinValue, scaleMinValue, scaleMinValue, scaleMaxValue, scaleMaxValue, scaleMinValue],
+                                         @"position.y" : @[TranslationBottomValue, TranslationBottomValue, translationTopValue,
+                                                           translationTopValue, translationCenterValue, translationCenterValue,
+                                                           TranslationBottomValue]}];
+        }
+            break;
+        case ReturnBoxStyleCubeBottomToTop:
+        {
+            //标签1的缩放动画和移动动画
+            [self addAnimationForLayer:self.label1.layer
+                            configInfo:@{
+                                         @"transform.scale.y" : @[scaleMaxValue, scaleMaxValue, scaleMinValue, scaleMinValue, scaleMinValue, scaleMinValue, scaleMaxValue],
+                                         @"position.y" : @[translationCenterValue, translationCenterValue, translationTopValue,
+                                                           translationTopValue, TranslationBottomValue,TranslationBottomValue, translationCenterValue]}];
+            
+            //标签2的缩放和移动动画
+            [self addAnimationForLayer:self.label2.layer
+                            configInfo:@{
+                                         @"transform.scale.y" : @[scaleMinValue, scaleMinValue, scaleMinValue, scaleMinValue, scaleMaxValue, scaleMaxValue, scaleMinValue],
+                                         @"position.y" : @[translationTopValue, translationTopValue, TranslationBottomValue,
+                                                           TranslationBottomValue, translationCenterValue, translationCenterValue, translationTopValue]}];
+            
+            //标签3的缩放和移动动画
+            [self addAnimationForLayer:self.label3.layer
+                            configInfo:@{
+                                         @"transform.scale.y" : @[scaleMinValue, scaleMinValue, scaleMaxValue, scaleMaxValue, scaleMinValue, scaleMinValue, scaleMinValue],
+                                         @"position.y" : @[TranslationBottomValue, TranslationBottomValue, translationCenterValue,
+                                                           translationCenterValue, translationTopValue, translationTopValue, TranslationBottomValue]}];
+        }
+            break;            
+            
+        default:
+            break;
+    }
     
     //定时器
     if ([self.label1.layer.animationKeys count] > 0)
@@ -271,6 +302,27 @@ CGFloat const kLYCRBVMinScale = 0.00;
                                                 userInfo:nil
                                                  repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+}
+
+/**
+ *  @author liyong
+ *
+ *  为图层添加动画
+ *
+ *  @param layer   图层
+ *  @param infoDic 动画的帧配置文件
+ */
+- (void)addAnimationForLayer:(nullable CALayer *)layer
+                  configInfo:(nullable NSDictionary <NSString *, NSArray *>*)infoDic
+{
+    [infoDic enumerateKeysAndObjectsUsingBlock:^(NSString * _Nonnull key, NSArray * _Nonnull obj, BOOL * _Nonnull stop) {
+        if (([key length] > 0) && ([obj count] > 0))
+        {
+            [self addAnimationForLayer:layer
+                               keyPath:key
+                                values:obj];
+        }
+    }];
 }
 
 /**
@@ -390,24 +442,61 @@ CGFloat const kLYCRBVMinScale = 0.00;
 - (void)listenerReturn
 {
     //标记将要显示的标签
-    if (([[self.label1.layer presentationLayer] isKindOfClass:[CALayer class]]) &&
-        ([(CALayer *)(self.label1.layer.presentationLayer) position].y == 0) &&
-        (CATransform3DEqualToTransform([(CALayer *)(self.label1.layer.presentationLayer) transform], CATransform3DMakeScale(1, kLYCRBVMinScale, 1))))
+    switch (self.returnBoxStyle)
     {
-        self.showingLabel = self.label1;
-    }else if (([[self.label2.layer presentationLayer] isKindOfClass:[CALayer class]]) &&
-              ([(CALayer *)(self.label2.layer.presentationLayer) position].y == 0) &&
-              (CATransform3DEqualToTransform([(CALayer *)(self.label2.layer.presentationLayer) transform], CATransform3DMakeScale(1, kLYCRBVMinScale, 1))))
-    {
-        self.showingLabel = self.label2;
-    }else if (([[self.label3.layer presentationLayer] isKindOfClass:[CALayer class]]) &&
-              ([(CALayer *)(self.label3.layer.presentationLayer) position].y == 0) &&
-              (CATransform3DEqualToTransform([(CALayer *)(self.label3.layer.presentationLayer) transform], CATransform3DMakeScale(1, kLYCRBVMinScale, 1))))
-    {
-        self.showingLabel = self.label3;
-    }else
-    {
-        self.showingLabel = nil;
+        case ReturnBoxStyleCubeTopToBottom:
+        {
+            if (([[self.label1.layer presentationLayer] isKindOfClass:[CALayer class]]) &&
+                ([(CALayer *)(self.label1.layer.presentationLayer) position].y == 0) &&
+                (CATransform3DEqualToTransform([(CALayer *)(self.label1.layer.presentationLayer) transform], CATransform3DMakeScale(1, kLYCRBVMinScale, 1))))
+            {
+                self.showingLabel = self.label1;
+            }else if (([[self.label2.layer presentationLayer] isKindOfClass:[CALayer class]]) &&
+                      ([(CALayer *)(self.label2.layer.presentationLayer) position].y == 0) &&
+                      (CATransform3DEqualToTransform([(CALayer *)(self.label2.layer.presentationLayer) transform], CATransform3DMakeScale(1, kLYCRBVMinScale, 1))))
+            {
+                self.showingLabel = self.label2;
+            }else if (([[self.label3.layer presentationLayer] isKindOfClass:[CALayer class]]) &&
+                      ([(CALayer *)(self.label3.layer.presentationLayer) position].y == 0) &&
+                      (CATransform3DEqualToTransform([(CALayer *)(self.label3.layer.presentationLayer) transform], CATransform3DMakeScale(1, kLYCRBVMinScale, 1))))
+            {
+                self.showingLabel = self.label3;
+            }else
+            {
+                self.showingLabel = nil;
+            }
+        }
+            break;
+        
+        case ReturnBoxStyleCubeBottomToTop:
+        {
+            if (([[self.label1.layer presentationLayer] isKindOfClass:[CALayer class]]) &&
+                ([(CALayer *)(self.label1.layer.presentationLayer) position].y == self.frame.size.height) &&
+                (CATransform3DEqualToTransform([(CALayer *)(self.label1.layer.presentationLayer) transform], CATransform3DMakeScale(1, kLYCRBVMinScale, 1))))
+            {
+                self.showingLabel = self.label1;
+            }else if (([[self.label2.layer presentationLayer] isKindOfClass:[CALayer class]]) &&
+                      ([(CALayer *)(self.label2.layer.presentationLayer) position].y == self.frame.size.height) &&
+                      (CATransform3DEqualToTransform([(CALayer *)(self.label2.layer.presentationLayer) transform], CATransform3DMakeScale(1, kLYCRBVMinScale, 1))))
+            {
+                self.showingLabel = self.label2;
+            }else if (([[self.label3.layer presentationLayer] isKindOfClass:[CALayer class]]) &&
+                      ([(CALayer *)(self.label3.layer.presentationLayer) position].y == self.frame.size.height) &&
+                      (CATransform3DEqualToTransform([(CALayer *)(self.label3.layer.presentationLayer) transform], CATransform3DMakeScale(1, kLYCRBVMinScale, 1))))
+            {
+                self.showingLabel = self.label3;
+            }else
+            {
+                self.showingLabel = nil;
+            }
+        }
+            break;
+            
+        default:
+        {
+            self.showingLabel = nil;
+        }
+            break;
     }
     
     if (self.showingLabel != nil)
