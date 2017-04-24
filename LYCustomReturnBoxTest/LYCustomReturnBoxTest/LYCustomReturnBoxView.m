@@ -64,7 +64,7 @@ CGFloat const kLYCRBVMinScale = 0.00;
  *  @param returnBoxStyle 滚动风格
  *  @param dataSource     数据源(字符串/富文本)
  *
- *  @return
+ *  @return 初始的对象
  */
 - (id)initWithFrame:(CGRect)frame
      returnBoxStyle:(ReturnBoxStyle)returnBoxStyle
@@ -87,7 +87,7 @@ CGFloat const kLYCRBVMinScale = 0.00;
  *
  *  设置内容对齐方式
  *
- *  @param textAlignment
+ *  @param textAlignment 内容对齐方式
  */
 - (void)setTextAlignment:(NSTextAlignment)textAlignment
 {
@@ -106,7 +106,7 @@ CGFloat const kLYCRBVMinScale = 0.00;
  *
  *  设置内容字体大小(非富文本)
  *
- *  @param textFont
+ *  @param textFont 内容字体大小
  */
 - (void)setTextFont:(UIFont *)textFont
 {
@@ -120,7 +120,7 @@ CGFloat const kLYCRBVMinScale = 0.00;
  *
  *  设置内容字体颜色
  *
- *  @param textColor
+ *  @param textColor 字体颜色
  */
 - (void)setTextColor:(UIColor *)textColor
 {
@@ -370,7 +370,7 @@ CGFloat const kLYCRBVMinScale = 0.00;
  *
  *  启动layer的动画
  *
- *  @param layer
+ *  @param layer 动画所在的图层
  */
 -(void)resumeAnimationForLayer:(CALayer *)layer
 {
@@ -406,7 +406,7 @@ CGFloat const kLYCRBVMinScale = 0.00;
  *
  *  暂停layer的动画
  *
- *  @param layer
+ *  @param layer 动画所在的图层
  */
 - (void)pauseAnimationForLayer:(CALayer *)layer
 {
@@ -418,9 +418,9 @@ CGFloat const kLYCRBVMinScale = 0.00;
 /**
  *  @author liyong
  *
- *  跑马灯是否还在转动中
+ *  动画是否还在执行中
  *
- *  @return
+ *  @return 动画是否在执行
  */
 - (BOOL)isReturning
 {
